@@ -14,7 +14,7 @@ function kjopBilett() {
     };
 
     if (Object.values(nyBilett).includes("") || nyBilett.film === "Velg film her" || nyBilett.antall <= 0) {
-        // legger ut feilmeldinger og validerer inpuutfeltene
+        // skriver ut feilmeldinger og validerer input
         if (nyBilett.antall === "" || nyBilett.antall <= 0) {
             $("#antallFeil").html("Må skrive noe inn i antall");
         } else {
@@ -41,15 +41,15 @@ function kjopBilett() {
             $("#epostFeil").html("");
         }
     } else {
-        // lagrer objektet i arrayet og skriver den samtidig ut
+        // lagrer objekt i array og skriver den ut samtidig
         $.post("/lagre", nyBilett, function () {
             hentAlle();
         });
-        // inputfeltene "blankes"
+        // input blankes
         $(":input").val("");
         $("#film").val("Velg film her");
 
-        // oppståtte feilmeldinger "blankes"
+        // feilmeldinger blankes
         $(".feilmelding").html("");
     }
 }
@@ -60,7 +60,7 @@ function hentAlle() {
     });
 }
 
-//formaterer tabell og skriver ut bilett
+//skriver ut tabell
 function skrivUtBillett(bilett) {
     let ut = "<table class='table table-light table-striped table-hover'><tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></tr>";
 
@@ -72,7 +72,7 @@ function skrivUtBillett(bilett) {
     ut+="</table>";
     $("#billettListe").html(ut);
 }
-//sletter bilettene
+//sletter billetten
 function slettAlleBiletter() {
     $.get("/slettAlle", function () {
         hentAlle();
