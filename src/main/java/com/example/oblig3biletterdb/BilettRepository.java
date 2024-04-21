@@ -17,7 +17,7 @@ public class BilettRepository {
         db.update(sql, bilett.getFilm(), bilett.getAntall(), bilett.getFornavn(), bilett.getEtternavn(), bilett.getTelefonnr(), bilett.getEpost());
     }
 
-    // sorterer bilettene og etter etternavn
+    // sorterer bilettene etter etternavn
     public List<Biletter> hentAlleBiletter() {
         String sql = "SELECT * FROM Biletter ORDER BY Etternavn";
         return db.query(sql, new BeanPropertyRowMapper(Biletter.class));
