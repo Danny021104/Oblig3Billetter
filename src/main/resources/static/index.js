@@ -1,6 +1,10 @@
 $(function(){
     hentAlle();
 });
+// regex
+let telefonNrRegex  = /^(\+\d{1,3}[- ]?)?\d{8}$/;
+let epostRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let navnRegex = /^[a-zA-ZæøåÆØÅ' ]{2,30}$/;
 
 function kjopBilett() {
     // Henter verdier til inputfeltene
@@ -20,22 +24,23 @@ function kjopBilett() {
         } else {
             $("#antallFeil").html("");
         }
-        if (nyBilett.fornavn === "") {
+        if (!navnRegex.test(nyBilett.fornavn)) {
             $("#fornavnFeil").html("Må skrive noe inn i fornavnet");
         } else {
             $("#fornavnFeil").html("");
         }
-        if (nyBilett.etternavn === "") {
+        if (!navnRegex.test(nyBilett.etternavn)) {
             $("#etternavnFeil").html("Må skrive noe inn i etternavnet");
         } else {
             $("#etternavnFeil").html("");
         }
-        if (nyBilett.telefonnr === "") {
+        if (!telefonNrRegex.test( nyBilett.telefonnr)) {
             $("#telefonnrFeil").html("Må skrive noe inn i telefonnr");
         } else {
             $("#telefonnrFeil").html("");
         }
-        if (nyBilett.epost === "") {
+        console.log(!epostRegex.test (nyBilett.epost));
+        if (!epostRegex.test (nyBilett.epost)) {
             $("#epostFeil").html("Må skrive noe inn i epost");
         } else {
             $("#epostFeil").html("");
