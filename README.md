@@ -5,3 +5,6 @@ Applikasjonen tillater brukere å bestille kinobilletter gjennom et webgrensesni
 Brukergrensesnittet er utviklet med HTML, CSS og Bootstrap for å sikre en responsiv og brukervennlig layout.
 jQuery brukes for å håndtere klient-siden interaksjoner og AJAX-kall for å integrere sømløst med Spring Boot-baserte RESTful APIs på server-siden. 
 Dette sørger for en dynamisk brukeropplevelse uten å måtte laste siden på nytt ved hver handling.
+
+Video av nettsiden:
+https://youtu.be/oamUrkKacbs
